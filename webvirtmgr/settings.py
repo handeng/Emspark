@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['*']
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'Europe/Zaporozhye'
+TIME_ZONE = 'Asia/Shanghai'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -198,7 +198,7 @@ QEMU_KEYMAPS = ['ar', 'da', 'de', 'de-ch', 'en-gb', 'en-us', 'es', 'et', 'fi',
 QEMU_CONSOLE_TYPES = ['vnc', 'spice']
 
 # default console type
-QEMU_CONSOLE_DEFAULT_TYPE = 'vnc'
+QEMU_CONSOLE_DEFAULT_TYPE = 'spice'
 
 # Installed Apps shouldn't be overridden
 INSTALLED_APPS = (

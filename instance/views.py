@@ -318,6 +318,80 @@ def instances(request, host_id):
 
     return render_to_response('instances.html', locals(), context_instance=RequestContext(request))
 
+def vm_start(request, host_id, vname):
+    """
+      VM start
+    """
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect(reverse('login'))
+
+    compute = Compute.objects.get(id=host_id)
+    computes = Compute.objects.all()
+    computes_count = len(computes)
+    try:
+        conn = wvmInstance(compute.hostname,
+                           compute.login,
+                           compute.password,
+                           compute.type,
+                           vname)
+        uuid = conn.get_uuid()
+        status = conn.get_status()
+        if status == 5:
+            conn.start()
+            msg = "vm started"
+        else:
+            msg = "vm is running"
+        status = conn.get_status()
+
+    except  libvirtError as err:
+        errors.append(err)
+        status = None
+        msg = "error"
+
+    data = json.dumps({'host_id': host_id,'name': vname,'uuid': uuid,'status': status,'msg': msg})
+    response = HttpResponse()
+    response['Content-Type'] = "text/javascript"
+    response.write(data)
+    return response
+
+def vm_shutdown(request, host_id, vname):
+    """
+     VM shutdown
+    """
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect(reverse('login'))
+
+    compute = Compute.objects.get(id=host_id)
+    computes = Compute.objects.all()
+    computes_count = len(computes)
+    try:
+        conn = wvmInstance(compute.hostname,
+                           compute.login,
+                           compute.password,
+                           compute.type,
+                           vname)
+        uuid = conn.get_uuid()
+        status = conn.get_status()
+        if status == 1:
+            conn.force_shutdown()
+            msg = 'vm shutdown'
+        else:
+            msg = 'vm not running'
+        status = conn.get_status()
+
+    except  libvirtError as err:
+        errors.append(err)
+        status = None
+        msg = "error"
+
+    data = json.dumps({'host_id': host_id,'name': vname,'uuid': uuid,'status': status,'msg': msg})
+    response = HttpResponse()
+    response['Content-Type'] = "text/javascript"
+    response.write(data)
+    return response
+
+
+
 
 def instance(request, host_id, vname):
     """

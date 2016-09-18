@@ -51,7 +51,7 @@
             </td>
             <td>{% if cur_vcpu %}{{ cur_vcpu }}{% else %}{{ vcpu }}{% endif %}</td>
             <td>{{ cur_memory }}{% trans "MB" %}</td>
-            <td>{{ description }}</td>
+            <td>{{ description }} {{ uuid }}</td>
         <tr>
         </tbody>
     </table>
