@@ -1,4 +1,4 @@
-# Create your views here.
+# API for vm 
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 import json
@@ -23,7 +23,7 @@ def auth(request):
                     msg = "login error"
 
 
-    data = json.dumps({'status': msg})
+    data = json.dumps({'status':status,'msg': msg})
     response = HttpResponse()
     response['Content-Type'] = "text/javascript"
     response.write(data)
