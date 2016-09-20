@@ -318,12 +318,46 @@ def instances(request, host_id):
 
     return render_to_response('instances.html', locals(), context_instance=RequestContext(request))
 
+
+def vm_console(request, host_id, vname):
+    """
+      return vm console type and port
+    """
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect(reverse('login'))
+    errors = []
+    compute = Compute.objects.get(id=host_id)
+    computes = Compute.objects.all()
+    computes_count = len(computes)
+    try:
+        conn = wvmInstance(compute.hostname,
+                           compute.login,
+                           compute.password,
+                           compute.type,
+                           vname)
+        uuid = conn.get_uuid()
+        status = conn.get_status()
+        console_port = conn.get_console_port()
+        console_type = conn.get_console_type()
+        console_listen_addr = conn.get_console_listen_addr()
+    except  libvirtError as err:
+        errors.append(err)
+
+    data = json.dumps({'host_id': host_id,'name': vname,'uuid': uuid,'status': status,'port':console_port,'listen':console_listen_addr,'type':console_type})
+    response = HttpResponse()
+    response['Content-Type'] = "text/javascript"
+    response.write(data)
+    return response
+
+
 def vm_start(request, host_id, vname):
     """
       VM start
     """
     if not request.user.is_authenticated():
         return HttpResponseRedirect(reverse('login'))
+
+    errors = []
 
     compute = Compute.objects.get(id=host_id)
     computes = Compute.objects.all()
@@ -335,6 +369,7 @@ def vm_start(request, host_id, vname):
                            compute.type,
                            vname)
         uuid = conn.get_uuid()
+        console = conn.get_console_port()
         status = conn.get_status()
         if status == 5:
             conn.start()
@@ -348,7 +383,7 @@ def vm_start(request, host_id, vname):
         status = None
         msg = "error"
 
-    data = json.dumps({'host_id': host_id,'name': vname,'uuid': uuid,'status': status,'msg': msg})
+    data = json.dumps({'host_id': host_id,'name': vname,'uuid': uuid,'status': status,'msg': msg,'port':console})
     response = HttpResponse()
     response['Content-Type'] = "text/javascript"
     response.write(data)
@@ -361,6 +396,8 @@ def vm_shutdown(request, host_id, vname):
     if not request.user.is_authenticated():
         return HttpResponseRedirect(reverse('login'))
 
+
+    errors = []
     compute = Compute.objects.get(id=host_id)
     computes = Compute.objects.all()
     computes_count = len(computes)

@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     url(r'^info/instusage/(\d+)/([\w\-\.]+)/$', 'instance.views.instusage', name='instusage'),
     url(r'^vm/start/(\d+)/([\w\-\.]+)/$','instance.views.vm_start',name='vm_start'),
     url(r'^vm/shutdown/(\d+)/([\w\-\.]+)/$','instance.views.vm_shutdown',name='vm_shutdown'),
+    url(r'^vm/console/(\d+)/([\w\-\.]+)/$','instance.views.vm_console',name='vm_console'),
 #    url(r'^auth/([\w\-\.]+)/([\w\-\.]+)/$','api.views.auth',name='auth'),
     url(r'^auth/$','api.views.auth',name='auth'),
 )

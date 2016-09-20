@@ -34,7 +34,7 @@ class wvmInstances(wvmConnect):
         else:
             vcpu = util.get_xml_path(inst.XMLDesc(0), "/domain/vcpu")
         return vcpu
-
+    
     def get_instance_managed_save_image(self, name):
         inst = self.get_instance(name)
         return inst.hasManagedSaveImage(0)
