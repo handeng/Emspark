@@ -231,6 +231,10 @@ class wvmCreate(wvmConnect):
 
         xml += """  <input type='mouse' bus='ps2'/>
                     <input type='tablet' bus='usb'/>
+                    <sound model='ich6'>
+                        <alias name='sound0'/>
+                        <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
+                    </sound>
                     <graphics type='%s' port='-1' autoport='yes' listen='0.0.0.0'>
                       <listen type='address' address='0.0.0.0'/>
                     </graphics>
