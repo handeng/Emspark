@@ -156,7 +156,7 @@ class wvmCreate(wvmConnect):
             hypervisor_type = 'qemu'
 
         xml = """
-                <domain type='%s'>
+                <domain type='%s' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
                   <name>%s</name>
                   <description>None</description>
                   <uuid>%s</uuid>
@@ -173,7 +173,9 @@ class wvmCreate(wvmConnect):
         xml += """<features>
                     <acpi/><apic/><pae/>
                   </features>
-                  <clock offset="localtime"/>
+                  <clock offset="localtime">
+                    
+                  </clock>
                   <on_poweroff>destroy</on_poweroff>
                   <on_reboot>restart</on_reboot>
                   <on_crash>restart</on_crash>
