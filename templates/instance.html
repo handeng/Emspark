@@ -101,6 +101,8 @@
         </ul>
         <div class="tab-content">
             <div class="tab-pane tab-inst active" id="shutdown">
+               
+                <img id="thumbnail" src ="{% url 'index' %}static/screenshot/{{ uuid }}.jpg">
                 {% ifequal status 5 %}
                 <p>{% trans "Click on Start button to start this instance." %}</p>
                 {% else %}
@@ -958,5 +960,31 @@
              }
          })
      }, 2000);
+</script>
+<script>
+function get_thumb(){
+        $.ajax({     
+            type:"GET",     
+            url:"{% url 'index' %}vm/screenshot/{{ host_id }}/{{ vname }}/",
+            contentType: "application/json; charset=utf-8",     
+            dataType:"json",     
+            success: function(data) {     
+                var timestamp = new Date().getTime();
+               /* $("#thumbnail").attr('src',$("#thumbnail").attr('src') + '?' +timestamp ); */
+                 $("#thumbnail").attr('src','{% url 'index' %}static/screenshot/{{ uuid }}.jpg' + '?' + timestamp );
+            },     
+            error: function(err) {     
+                alert(err);     
+            }     
+        });
+}
+
+
+    $("#thumbnail").click(function() { 
+         get_thumb();
+     });
+
+   setInterval('get_thumb()',5000);
+
 </script>
 {% endblock %}
