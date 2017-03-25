@@ -172,6 +172,11 @@ class wvmCreate(wvmConnect):
                   </os>""" % (self.get_host_arch(), self.get_os_type())
         xml += """<features>
                     <acpi/><apic/><pae/>
+                        <hyperv>
+                           <relaxed state='on'/>
+                           <vapic state='on'/>
+                           <spinlocks state='on' retries='4096'/>
+                        </hyperv>
                   </features>
                   <clock offset="localtime">
                     
