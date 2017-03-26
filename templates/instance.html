@@ -101,8 +101,9 @@
         </ul>
         <div class="tab-content">
             <div class="tab-pane tab-inst active" id="shutdown">
-               
+               <div class="screenshot"> 
                 <img id="thumbnail" src ="{% url 'index' %}static/screenshot/{{ uuid }}.jpg">
+               </div>
                 {% ifequal status 5 %}
                 <p>{% trans "Click on Start button to start this instance." %}</p>
                 {% else %}
@@ -974,7 +975,7 @@ function get_thumb(){
                  $("#thumbnail").attr('src','{% url 'index' %}static/screenshot/{{ uuid }}.jpg' + '?' + timestamp );
             },     
             error: function(err) {     
-                alert(err);     
+                /*alert(err);  */
             }     
         });
 }

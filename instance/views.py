@@ -463,6 +463,7 @@ def vm_screenshot(request, host_id, vname):
         THUMBNAIL_SIZE =(512, 512)
         thumbnail = './static/screenshot/' + uuid + ".jpg"
         command = "touch " + thumbnail
+        
         os.system(command)
         fd = os.open(thumbnail, os.O_WRONLY | os.O_TRUNC | os.O_CREAT, 0644)
         d1 = conn.wvm.lookupByName(vname)
@@ -490,6 +491,15 @@ def vm_screenshot(request, host_id, vname):
         errors.append(err)
         status = None
         msg = "error"
+        try:
+            stream.abor()
+        except:
+            pass
+    else:
+        stream.finish()
+    finally:
+        os.close(fd)
+        
 
     data = json.dumps({'host_id': host_id,'name': vname,'uuid': uuid,'status': status,'msg': msg,'imgurl': imgurl})
     response = HttpResponse()

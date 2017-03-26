@@ -213,3 +213,12 @@ p {
 #viewXMLpre .pre-scrollable {
     width: 100%;
 }
+
+.screenshot {
+    width:542px;
+    height:384px;
+    padding: 5px 5px 5px 5px;
+    background-color: rgb(245, 245, 245);
+    border:1px solid rgb(204, 204, 204);
+    border-radius: 4px;
+}
