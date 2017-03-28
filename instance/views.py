@@ -462,9 +462,7 @@ def vm_screenshot(request, host_id, vname):
         uuid = conn.get_uuid()
         THUMBNAIL_SIZE =(512, 512)
         thumbnail = './static/screenshot/' + uuid + ".jpg"
-        command = "touch " + thumbnail
         
-        os.system(command)
         fd = os.open(thumbnail, os.O_WRONLY | os.O_TRUNC | os.O_CREAT, 0644)
         d1 = conn.wvm.lookupByName(vname)
         stream = conn.wvm.newStream(0)
@@ -506,6 +504,38 @@ def vm_screenshot(request, host_id, vname):
     response['Content-Type'] = "text/javascript"
     response.write(data)
     return response
+
+
+
+def vm_xml(request,host_id,vname):
+    """
+    vm xml define 
+    """
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect(reverse('login'))
+
+    errors = []
+    messages = []
+    time_refresh = TIME_JS_REFRESH * 3
+    compute = Compute.objects.get(id=host_id)
+    computes = Compute.objects.all()
+    computes_count = len(computes)
+    try:
+        conn = wvmInstance(compute.hostname,
+                           compute.login,
+                           compute.password,
+                           compute.type,
+                           vname)
+
+        inst_xml = conn._XMLDesc(VIR_DOMAIN_XML_SECURE)
+    except  libvirtError as err:
+        pass
+
+    response = HttpResponse()
+    response['Content-Type'] = "text/xml"
+    response.write(inst_xml)
+    return response
+
 
 
 
