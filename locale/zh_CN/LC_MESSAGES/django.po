@@ -222,7 +222,7 @@ msgstr "主机名称能包含数字或以\".\"分隔的域名格式"
 #: servers/forms.py:39 servers/forms.py:75 servers/forms.py:113
 #: servers/forms.py:147
 msgid "Wrong IP address"
-msgstr "错误的IP地址"
+msgstr "IP地址错误"
 
 #: servers/forms.py:59 servers/forms.py:135
 msgid "The name of the host must not contain any special characters"
@@ -258,11 +258,11 @@ msgstr "池名称已被占用"
 
 #: storages/views.py:42
 msgid "You need create secret for pool"
-msgstr ""
+msgstr "需要先创建一个密钥"
 
 #: storages/views.py:45
 msgid "You need input all fields for creating ceph pool"
-msgstr ""
+msgstr "创建CEPH池的时候需要填写完整。"
 
 #: storages/views.py:164
 msgid "ISO image already exist"
@@ -335,11 +335,11 @@ msgstr "虚机实例"
 
 #: templates/create.html:61
 msgid "From Template"
-msgstr ""
+msgstr "模板创建"
 
 #: templates/create.html:62
 msgid "From XML"
-msgstr ""
+msgstr "从配置文件创建"
 
 #: templates/create.html:63
 #, fuzzy
@@ -416,7 +416,7 @@ msgstr "无"
 #: templates/create.html:127 templates/create.html.py:420
 #: templates/storage.html:199 templates/storage.html.py:287
 msgid "Metadata"
-msgstr ""
+msgstr "元数据"
 
 #: templates/create.html:132 templates/create.html.py:425
 #, fuzzy
@@ -520,15 +520,15 @@ msgstr "添加"
 
 #: templates/create.html:368
 msgid "Create Instance From Template Image"
-msgstr ""
+msgstr "从模板镜像创建实例"
 
 #: templates/create.html:468
 msgid "Create Instance From XML"
-msgstr ""
+msgstr "从XML配置文件创建实例"
 
 #: templates/hostdetail.html:4 templates/sidebar.html:35
 msgid "Overview"
-msgstr "概览"
+msgstr "服务器状态"
 
 #: templates/hostdetail.html:17
 msgid "Basic details"
@@ -651,11 +651,11 @@ msgstr "保存"
 
 #: templates/instance.html:62
 msgid "Power"
-msgstr ""
+msgstr "电源"
 
 #: templates/instance.html:66
 msgid "Access"
-msgstr ""
+msgstr "访问"
 
 #: templates/instance.html:70
 msgid "Snapshots"
@@ -672,11 +672,11 @@ msgstr "设置"
 #: templates/instance.html:82 templates/instance.html.py:703
 #: templates/instance.html:705
 msgid "Migrate"
-msgstr ""
+msgstr "迁移"
 
 #: templates/instance.html:86
 msgid "Destroy"
-msgstr ""
+msgstr "销毁"
 
 #: templates/instance.html:93 templates/instance.html.py:109
 #: templates/instance.html:112 templates/instances.html:71
@@ -721,11 +721,11 @@ msgstr "启动"
 #: templates/instance.html:118
 msgid ""
 "This action forcibly powers off the instance and may cause data corruption."
-msgstr ""
+msgstr "强制关闭虚拟机可能会导致数据丢失或损坏。"
 
 #: templates/instance.html:136
 msgid "This action suspends or restores the instance."
-msgstr ""
+msgstr "挂起或恢复虚拟机。"
 
 #: templates/instance.html:149 templates/instances.html:85
 #: templates/instances.html.py:197
@@ -734,7 +734,7 @@ msgstr "恢复"
 
 #: templates/instance.html:155
 msgid "This action saves the state of the instance."
-msgstr ""
+msgstr "保存虚拟机状态"
 
 #: templates/instance.html:164 templates/instances.html:67
 #: templates/instances.html.py:155
@@ -754,7 +754,7 @@ msgstr "密码"
 
 #: templates/instance.html:183
 msgid "VNC Keymap"
-msgstr ""
+msgstr "VNC键盘映射"
 
 #: templates/instance.html:185
 #, fuzzy
@@ -765,7 +765,7 @@ msgstr "控制台"
 msgid ""
 "This action opens a new window with a VNC connection to the console of the "
 "instance."
-msgstr ""
+msgstr "打开一个新的VNC连接窗口。"
 
 #: templates/instance.html:193 templates/instance.html.py:196
 #: templates/instance.html:203 templates/instance.html.py:207
@@ -779,7 +779,7 @@ msgstr ""
 
 #: templates/instance.html:212
 msgid "To create password for VNC, shutdown the instance."
-msgstr ""
+msgstr "创建VNC连接密码，请关闭虚拟机。"
 
 #: templates/instance.html:220
 msgid "Generate"
@@ -787,7 +787,7 @@ msgstr "自动生成"
 
 #: templates/instance.html:226 templates/instance.html.py:266
 msgid "Clear"
-msgstr ""
+msgstr "清除"
 
 #: templates/instance.html:232 templates/instance.html.py:239
 #: templates/servers.html:136 templates/servers.html.py:220
@@ -798,7 +798,7 @@ msgstr "密码"
 
 #: templates/instance.html:244
 msgid "Show"
-msgstr ""
+msgstr "显示"
 
 #: templates/instance.html:249 templates/instance.html.py:252
 #, fuzzy
@@ -823,11 +823,11 @@ msgstr ""
 
 #: templates/instance.html:297
 msgid "VCPU's and Memory"
-msgstr ""
+msgstr "虚拟CPU和内存"
 
 #: templates/instance.html:298
 msgid "Media"
-msgstr ""
+msgstr "媒体介质"
 
 #: templates/instance.html:299
 #, fuzzy
@@ -871,15 +871,15 @@ msgstr "逻辑CPU"
 
 #: templates/instance.html:334 templates/instance.html.py:364
 msgid "Current allocation"
-msgstr ""
+msgstr "当前分配"
 
 #: templates/instance.html:350 templates/instance.html.py:379
 msgid "Maximum allocation"
-msgstr ""
+msgstr "最大分配"
 
 #: templates/instance.html:360
 msgid "Total host memory:"
-msgstr ""
+msgstr "主机内存"
 
 #: templates/instance.html:374 templates/instance.html.py:389
 #, fuzzy
@@ -942,11 +942,11 @@ msgstr "实例快照"
 
 #: templates/instance.html:546
 msgid "To take a snapshot, shutdown the instance."
-msgstr ""
+msgstr "创建快照请关闭虚拟机。"
 
 #: templates/instance.html:567
 msgid "To revert to a snapshot, shutdown the instance"
-msgstr ""
+msgstr "恢复快照请关闭虚拟机。"
 
 #: templates/instance.html:573
 msgid "Date"
@@ -963,11 +963,11 @@ msgstr "无任何快照"
 #: templates/instance.html:613
 #, fuzzy
 msgid "Instance Statistics"
-msgstr "资源用量统计"
+msgstr "资源使用统计"
 
 #: templates/instance.html:623
 msgid "Bandwidth"
-msgstr ""
+msgstr "带宽"
 
 #: templates/instance.html:627
 msgid "In"
@@ -997,19 +997,19 @@ msgstr "虚机实例"
 
 #: templates/instance.html:652 templates/instance.html.py:725
 msgid "Warning:"
-msgstr ""
+msgstr "警告"
 
 #: templates/instance.html:652
 msgid "Both host servers must have equal settings and OS type"
-msgstr ""
+msgstr "所有的主机必须配置相同。"
 
 #: templates/instance.html:658
 msgid "Original host"
-msgstr ""
+msgstr "源主机"
 
 #: templates/instance.html:666
 msgid "Host migration"
-msgstr ""
+msgstr "目的主机"
 
 #: templates/instance.html:681
 #, fuzzy
@@ -1018,11 +1018,11 @@ msgstr "IPv4配置"
 
 #: templates/instance.html:688
 msgid "Unsafe migration"
-msgstr ""
+msgstr "不安全迁移"
 
 #: templates/instance.html:695
 msgid "Delete original"
-msgstr ""
+msgstr "删除源配置"
 
 #: templates/instance.html:714
 #, fuzzy
@@ -1055,7 +1055,7 @@ msgstr "无任何虚拟机"
 #: templates/interface.html:4 templates/interface.html.py:19
 #: templates/interfaces.html:4
 msgid "Interface"
-msgstr ""
+msgstr "网络接口"
 
 #: templates/interface.html:23 templates/interfaces.html:112
 msgid "IPv4"
@@ -1071,7 +1071,7 @@ msgstr ""
 
 #: templates/interface.html:35
 msgid "Interface type"
-msgstr ""
+msgstr "接口类型"
 
 #: templates/interface.html:40
 #, fuzzy
@@ -1080,7 +1080,7 @@ msgstr "桥接名称"
 
 #: templates/interface.html:45
 msgid "Boot mode"
-msgstr ""
+msgstr "启动模式"
 
 #: templates/interface.html:49 templates/network.html:35
 #: templates/storage.html:54
@@ -1102,7 +1102,7 @@ msgstr "类型"
 
 #: templates/interfaces.html:47
 msgid "Create New Interface"
-msgstr ""
+msgstr "创建新接口"
 
 #: templates/interfaces.html:60
 #, fuzzy
@@ -1119,7 +1119,7 @@ msgstr ""
 
 #: templates/interfaces.html:66
 msgid "hotplug"
-msgstr ""
+msgstr "热插拔"
 
 #: templates/interfaces.html:71 templates/network.html:31
 #: templates/networks.html:55 templates/storages.html:142
@@ -1150,11 +1150,11 @@ msgstr "关闭"
 
 #: templates/interfaces.html:102
 msgid "Delay"
-msgstr ""
+msgstr "延迟"
 
 #: templates/interfaces.html:120
 msgid "IPv4 Mode"
-msgstr ""
+msgstr "IPV4模式"
 
 #: templates/interfaces.html:124 templates/interfaces.html.py:154
 #: templates/network.html:94 templates/networks.html:93
@@ -1178,11 +1178,11 @@ msgstr "错误的IP地址"
 
 #: templates/interfaces.html:139
 msgid "IPv4 Gateway"
-msgstr ""
+msgstr "IPV4网关"
 
 #: templates/interfaces.html:149
 msgid "IPv6 Mode"
-msgstr ""
+msgstr "IPV6模式"
 
 #: templates/interfaces.html:160
 #, fuzzy
@@ -1191,7 +1191,7 @@ msgstr "错误的IP地址"
 
 #: templates/interfaces.html:168
 msgid "IPv6 Gateway"
-msgstr ""
+msgstr "IPV6网关"
 
 #: templates/login.html:3 templates/login.html.py:14 templates/login.html:19
 msgid "Sign In"
@@ -1256,11 +1256,11 @@ msgstr "结束"
 
 #: templates/network.html:117 templates/networks.html:100
 msgid "Fixed Address"
-msgstr ""
+msgstr "固定地址"
 
 #: templates/network.html:139
 msgid "Address"
-msgstr ""
+msgstr "地址"
 
 #: templates/networks.html:3
 msgid "Virtual Networks"
@@ -1303,7 +1303,7 @@ msgstr ""
 #: templates/secrets.html:4 templates/sidebar.html:32
 #: templates/storages.html:201
 msgid "Secrets"
-msgstr ""
+msgstr "密钥管理"
 
 #: templates/secrets.html:23
 msgid "UUID"
@@ -1341,7 +1341,7 @@ msgstr "无任何存储池"
 
 #: templates/secrets.html:110
 msgid "Create New Secret"
-msgstr ""
+msgstr "创建新密钥"
 
 #: templates/secrets.html:115
 msgid "Ephemeral"
@@ -1357,7 +1357,7 @@ msgstr ""
 
 #: templates/secrets.html:125
 msgid "Private"
-msgstr ""
+msgstr "私有"
 
 #: templates/secrets.html:146
 msgid "Data"
@@ -1427,10 +1427,8 @@ msgstr "用户名"
 
 #: templates/servers.html:153
 msgid ""
-"Need create ssh <a href='https://github.com/retspen/webvirtmgr/wiki/Setup-"
-"SSH-Authorization'>authorization key</a>. If you have another SSH port on "
-"your server, you can add IP:PORT like '192.168.1.1:2222'."
-msgstr ""
+"Need create ssh authorization key"
+msgstr "需要创建authorization key"
 
 #: templates/servers.html:267
 msgid "TCP Connections"
@@ -1447,20 +1445,13 @@ msgstr "连接"
 
 #: templates/servers.html:271
 msgid "Local Socket"
-msgstr ""
+msgstr "本地Socket"
 
 #: templates/servers.html:290 templates/servers.html.py:335
 #: templates/servers.html:370
 #, fuzzy
 msgid "FQDN or IP Address"
 msgstr "错误的IP地址"
-
-#: templates/servers.html:320
-msgid ""
-"You must create ssh <a href='https://github.com/retspen/webvirtmgr/wiki/"
-"Setup-SSH-Authorization'>authorization key</a>. If you have another SSH port "
-"on your server, you can add IP:PORT like '192.168.1.1:2222'."
-msgstr ""
 
 #: templates/sidebar.html:6
 #, fuzzy
@@ -1477,7 +1468,7 @@ msgstr "网络池"
 
 #: templates/sidebar.html:28
 msgid "Interfaces"
-msgstr ""
+msgstr "网络接口"
 
 #: templates/storage.html:3
 msgid "Storage Pool"
@@ -1721,9 +1712,6 @@ msgstr "逻辑CPU"
 
 #~ msgid "********"
 #~ msgstr "********"
-
-#~ msgid "Need create ssh authorization key"
-#~ msgstr "需要创建SSH认证密钥"
 
 #~ msgid "You do not have any snapshots for"
 #~ msgstr "无快照于虚拟机"
