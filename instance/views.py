@@ -422,7 +422,7 @@ def vm_shutdown(request, host_id, vname):
                            vname)
         uuid = conn.get_uuid()
         status = conn.get_status()
-        if status == 1 || status == 7:
+        if status == 1 or status == 7:
             conn.force_shutdown()
             msg = 'vm shutdown'
         else:
