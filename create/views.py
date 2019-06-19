@@ -95,6 +95,9 @@ def create(request, host_id):
                         if data['name'] in instances:
                             msg = _("A virtual machine with this name already exists")
                             errors.append(msg)
+                    if len(instances) > 27:
+                        msg = _("Invaid License")
+                        errors.append(msg)
                     if not errors:
                         if data['hdd_size']:
                             if not data['mac']:

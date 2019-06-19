@@ -7,5 +7,7 @@ venv
 .vagrant
 webvirtmgr/local/.secret_key_store
 webvirtmgr/local/local_settings.py
+nohup.out
+static/
 dist
 webvirtmgr.egg-info

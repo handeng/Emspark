@@ -196,6 +196,26 @@ def instusage(request, host_id, vname):
         response.write(data)
     return response
 
+def get_ip_from_mac(request,mac):
+    """
+    Get vm ip from mac
+    """
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect(reverse('login'))
+    s = ""
+    f = open('/opt/Emspark/static/ip.txt','r')
+    f_list = f.readlines()
+    for f in f_list:
+        line = f.split(" ")
+        if len(line) == 2:
+            if line[1].strip("\n") == mac:
+                s = line[0]
+    data = json.dumps({'ip': s,'mac':mac})
+    response = HttpResponse()
+    response['Content-Type'] = "text/javascript"
+    response.write(data)
+    return response
+
 
 def inst_status(request, host_id, vname):
     """

@@ -28,7 +28,7 @@
             <th>{% trans "Status" %}</th>
             <th>{% trans "VCPUs" %}</th>
             <th>{% trans "Memory" %}</th>
-            <th>{% trans "Description" %}</th>
+            <th>IP</th>
         </tr>
         </thead>
         <tbody>
@@ -51,7 +51,7 @@
             </td>
             <td>{% if cur_vcpu %}{{ cur_vcpu }}{% else %}{{ vcpu }}{% endif %}</td>
             <td>{{ cur_memory }}{% trans "MB" %}</td>
-            <td>{{ description }} {{ uuid }}</td>
+            <td><span id="txt_ip"></span></td>
         <tr>
         </tbody>
     </table>
@@ -979,6 +979,22 @@ function get_thumb(){
             }     
         });
 }
+
+function getip(mac){
+        //alert(mac);
+        $("#txt_ip").html(mac);
+         $.getJSON('{% url 'index' %}vm/getip/'+ mac +'/', function (data) {
+             $("#txt_ip").html(data['ip']);
+ 
+         });
+}
+
+            {% for network in networks %}
+                {% if network.ip %}
+                {% else %}
+                    setTimeout(getip("{{ network.mac }}"),2000);
+                {% endif %}
+            {% endfor %}
 
 
     $("#thumbnail").click(function() { 

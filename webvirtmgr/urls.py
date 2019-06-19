@@ -28,6 +28,7 @@ urlpatterns = patterns('',
     url(r'^vm/xml/(\d+)/([\w\-\.]+)/$','instance.views.vm_xml',name='vm_xml'),
     url(r'^vm/shutdown/(\d+)/([\w\-\.]+)/$','instance.views.vm_shutdown',name='vm_shutdown'),
     url(r'^vm/console/(\d+)/([\w\-\.]+)/$','instance.views.vm_console',name='vm_console'),
+    url(r'^vm/getip/([\w\:]+)/$','instance.views.get_ip_from_mac',name='vm_getip'),
 #    url(r'^auth/([\w\-\.]+)/([\w\-\.]+)/$','api.views.auth',name='auth'),
     url(r'^auth/$','api.views.auth',name='auth'),
 )
