@@ -270,6 +270,7 @@ def insts_status(request, host_id):
                           'memory': conn.get_instance_memory(instance),
                           'vcpu': conn.get_instance_vcpu(instance),
                           'uuid': conn.get_uuid(instance),
+                          'desc': conn.get_desc(instance),
                           'host': host_id,
                           'dump': conn.get_instance_managed_save_image(instance)
                           })
@@ -315,6 +316,7 @@ def instances(request, host_id):
         instances.append({'name': instance,
                           'status': conn.get_instance_status(instance),
                           'uuid': uuid,
+                          'desc': conn.get_desc(instance),
                           'memory': conn.get_instance_memory(instance),
                           'vcpu': conn.get_instance_vcpu(instance),
                           'has_managed_save_image': conn.get_instance_managed_save_image(instance)})

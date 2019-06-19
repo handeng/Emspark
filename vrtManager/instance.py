@@ -2,6 +2,7 @@
 # Copyright (C) 2013 Webvirtmgr.
 #
 import time
+import sys
 import os.path
 try:
     from libvirt import libvirtError, VIR_DOMAIN_XML_SECURE, VIR_MIGRATE_LIVE, \
@@ -14,6 +15,9 @@ from datetime import datetime
 from vrtManager.connection import wvmConnect
 
 from webvirtmgr.settings import QEMU_CONSOLE_TYPES
+
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 
 class wvmInstances(wvmConnect):
@@ -34,7 +38,11 @@ class wvmInstances(wvmConnect):
         else:
             vcpu = util.get_xml_path(inst.XMLDesc(0), "/domain/vcpu")
         return vcpu
-    
+   
+    def get_desc(self,name):
+        inst = self.get_instance(name)
+        return util.get_xml_path(inst.XMLDesc(0), "/domain/description")
+ 
     def get_instance_managed_save_image(self, name):
         inst = self.get_instance(name)
         return inst.hasManagedSaveImage(0)

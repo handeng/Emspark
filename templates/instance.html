@@ -101,7 +101,8 @@
         </ul>
         <div class="tab-content">
             <div class="tab-pane tab-inst active" id="shutdown">
-               <div class="screenshot"> 
+               <span>{{ description }}</span>
+               <div class="screenshot">
                 <img id="thumbnail" src ="{% url 'index' %}static/screenshot/{{ uuid }}.jpg">
                </div>
                 {% ifequal status 5 %}

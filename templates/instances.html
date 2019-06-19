@@ -26,6 +26,7 @@
                         <th>{% trans "VCPUs" %}</th>
                         <th>{% trans "Memory" %}</th>
                         <th style="width:252px;">{% trans "Action" %}</th>
+                        <th>#</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -131,6 +132,7 @@
                                     {% endifequal %}
                                 </form>
                             </td>
+                            <td>{{ inst.desc }}</td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -184,6 +186,7 @@
                                 + "<span class='glyphicon glyphicon-align-justify'></span>"
                                 + "</a> "
                                 + "</form>"
+                                + "</td><td>"+ data[i]['desc'] +""
                                 + "</td>");
                     }
                     if (data[i]['status'] === 3) {
@@ -213,6 +216,7 @@
                                 + "<span class='glyphicon glyphicon-align-justify'></span>"
                                 + "</button> "
                                 + "</form>"
+                                + "</td><td>"+ data[i]['desc'] +""
                                 + "</td>");
                     }
                     if (data[i]['status'] == 5) {
@@ -242,6 +246,7 @@
                                 + "<span class='glyphicon glyphicon-align-justify'></span>"
                                 + "</button> "
                                 + "</form>"
+                                + "</td><td>"+ data[i]['desc'] +""
                                 + "</td>");
                     }
                 }
