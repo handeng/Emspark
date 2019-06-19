@@ -5,3 +5,4 @@ gunicorn==18.0
 lockfile>=0.9
 # Uncoment for support ldap
 #django-auth-ldap==1.2.0
+Image>=1.5.27
